@@ -1,0 +1,2739 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/9/2024 7:14:37 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-FEOE8PL"
+  DTS:CreatorName="DESKTOP-FEOE8PL\DELL"
+  DTS:DTSID="{D1637A31-DA3A-48E4-A533-89557DB351F5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5397.1"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Sharepoint"
+  DTS:PackageType="5"
+  DTS:VersionBuild="190"
+  DTS:VersionGUID="{2E281EB0-C3D4-468E-A7CF-A15D2C9951A1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{7B85517A-46BC-40C8-B592-E7FCA00BEA8D}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FileDownloadLocation] + @[User::FileName]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="16393"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString="E:\SSIS\Sharepoint\">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmployeeID"
+              DTS:DTSID="{D90C1484-2402-4CCA-BE21-EBBA89752210}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{0B6412C2-0F21-442A-9466-5F00492CF00A}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{577D5086-60CF-4D5C-B8DF-084FF1F56C52}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OccupationID"
+              DTS:DTSID="{48A47CEC-7E1D-4EC0-8C3D-A4E13CB199C1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OccupationTitle"
+              DTS:DTSID="{377D8515-78F4-47B7-8C71-DF2BD03E4406}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Luxoft]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{77C8A633-2147-42F3-8AD3-3A68714517F6}"
+      DTS:ObjectName="Luxoft">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Sample;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Sharepoint-{77C8A633-2147-42F3-8AD3-3A68714517F6}LocalHost.Sample1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OData Source]"
+      DTS:CreationName="ODATA"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{9C8F63F5-8623-4039-A457-0FC6ABF3102B}"
+      DTS:ObjectName="OData Source">
+      <DTS:ObjectData>
+        <ODataConnectionManager
+          UserName="SUHASBHARADWAJK@SuhasBharadwajK.onmicrosoft.com"
+          Url="https://suhasbharadwajk.sharepoint.com/sites/Luxoft/_vti_bin/listdata.svc"
+          ConnectionString="Service Document Url=https://suhasbharadwajk.sharepoint.com/sites/Luxoft/_vti_bin/listdata.svc;Include Atom Elements=Auto;Include Expanded Entities=False;Integrated Security=False;Cookie=&quot;SPOIDCRL=77u/PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48U1A+VjEzLDBoLmZ8bWVtYmVyc2hpcHwxMDAzMjAwMzZlNWRiZTU5QGxpdmUuY29tLDAjLmZ8bWVtYmVyc2hpcHxzdWhhc2JoYXJhZHdhamtAc3VoYXNiaGFyYWR3YWprLm9ubWljcm9zb2Z0LmNvbSwxMzM1NzM2Nzg0NTAwMDAwMDAsMTMzNTcwMzkwMTcwMDAwMDAwLDEzMzU3NDU0MjQ1NDc3NDQ2OSwwLjAuMC4wLDIwOTcxNTYsNTM5Y2QwZjQtZDZiOS00MTQxLWI1ZjktNmViODk4MzI0NDc1LCwsMGQyYTFlYTEtNzAyMi0zMDAwLTM0M2MtN2Y4NzA0NjMzOGExLDBkMmExZWExLTcwMjItMzAwMC0zNDNjLTdmODcwNDYzMzhhMSwsMCwwLDAsLCwsMjY1MDQ2Nzc0Mzk5OTk5OTk5OSwwLCwsLCwsLDAsLDE5NjUxMSxEYURBZmpRUW1weU9YeDJScktfVzVsdm9MWjQsTnJLWVh5Q0V5aFZzOTRBdEMyS3NSSGdyN3E0TnNBSWZHY2t4TjNiVnduNitLVmhKWENEUGJvcnBpK1l5WE9RZlozWjBMbnFROWVUaUl2SHRtVi9sWlRTUVVKOFl6Zktnd2NkZDc3YlVyNnlxdmNSMHpKazVtWU4wSE9OK2c5bnl4OEUvRDdSYnNYOFZ5aXY4WVlrRTZFbkZsS000VCtaRU9SY1NBa1ROaFFqWU1wTVJodlVjblV5WjRpRERHZHM1Vzh0RG5GS0dGbnI2eVhwUmlLRE8rZEswYmZUM3RLQmNlMm0xZTNobGt2MWZKUjIwRUpXdk1SYzdtYWc3NjRGalhzcE50L3ZFT09JRytnZjR0dzFvYnJobEkwYkU3ZGg5T2dTMXFBcjJyQlJ0aENEbDJFWEtBejBlSVpGVjhLcDRHbTVFMmhvY055TUF0SG8zRkxJZjZnPT08L1NQPg==&quot;;User ID=SUHASBHARADWAJK@SuhasBharadwajK.onmicrosoft.com;DNS=suhasbharadwajk.sharepoint.com;Persist Security Info=False;Time Out=1200;Schema Sample Size=25;Retry Count=5;Retry Sleep=100;Keep Alive=False;Max Received Message Size=4398046511104"
+          MicrosoftOnlineServicesAuth="True"
+          AuthType="MicrosoftOnlineService"
+          ConnectByProxy="False">
+          <Password
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAfmeaREn41ku49BfuI2dw9gAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACAYL3jMRj6TSY1PTQURTg4wdpw7D7f7AcrOUJJu0lxeQAAAAAOgAAAAAIAACAAAACkOhFGeDMu3jUaUMhSmmJ+V6ILEBWgmxrxSdvT9jHBZSAAAADjrQzT2k7ecaLTNhqU1F9wVXP9Nb+t4Mv9+ZTNmKpY5kAAAAB/VDX70RI7AtYuvXJduV5L2YMh5B36a2ieSAN9HRVJDLw91+WwKGWeWrfDHwvL7QBCy9WvzLs668kMUZrKDGmm</Password>
+        </ODataConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BEA9FAA0-2243-4C7E-86B6-EE27333AB194}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DocumentLibrary">
+      <DTS:VariableValue
+        DTS:DataType="8">SSIS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{83D0BB6A-C141-4100-AB59-1EA4E05A37A1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileDownloadLocation">
+      <DTS:VariableValue
+        DTS:DataType="8">E:\SSIS\Sharepoint\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{274683E8-AA4A-4E64-B15B-A0907BB62402}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileLocationInSharepoint">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{53751BEC-03F5-4999-B483-D593577164E8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileLocationInSharepointAndName">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B8889DA0-9B3C-4E01-B943-11EA6F85C387}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0E758C4-ECC1-432E-ACBD-246896738486}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SharepointURL">
+      <DTS:VariableValue
+        DTS:DataType="8">https://suhasbharadwajk.sharepoint.com</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CB5F00F9-DE0F-4988-9DE9-8A9E46AC278F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Site">
+      <DTS:VariableValue
+        DTS:DataType="8">Luxoft</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach File in Sharepoint"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{B5F82BD1-743A-485A-8205-E511CCDCDEC7}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach File in Sharepoint">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{800ECE63-2AAD-4BD5-886A-27E5B356A07D}"
+        DTS:ObjectName="{800ECE63-2AAD-4BD5-886A-27E5B356A07D}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::FileLocationInSharepointAndName" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach File in Sharepoint\Delete the downloaded file"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{89F70130-27A5-4F7A-8438-6AF3E58E90BC}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Delete the downloaded file"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\Foreach File in Sharepoint\Delete the downloaded file.EventHandlers[OnError]"
+              DTS:CreationName="OnError"
+              DTS:DTSID="{08FD7A13-2B24-4518-9FD1-C3A1009251E3}"
+              DTS:EventID="0"
+              DTS:EventName="OnError"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{3D2C9A95-22C8-41FD-B735-D51491E8EE6E}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="DeleteFile"
+              TaskSourcePath="{7B85517A-46BC-40C8-B592-E7FCA00BEA8D}" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach File in Sharepoint\Download the Files from Sharepoint"
+          DTS:CreationName="Microsoft.ScriptTask"
+          DTS:Description="Script Task"
+          DTS:DTSID="{7A1B5341-6218-4C85-B9D6-96EF5731332E}"
+          DTS:ExecutableType="Microsoft.ScriptTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Download the Files from Sharepoint"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_67a2a86b4b0b44ca93753989f41a31b1"
+              VSTAMajorVersion="16"
+              VSTAMinorVersion="0"
+              Language="CSharp"
+              ReadOnlyVariables="User::DocumentLibrary,User::FileDownloadLocation,User::FileLocationInSharepoint,User::FileName,User::SharepointURL,User::Site">
+              <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Resources.resx"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+              <ProjectItem
+                Name="packages.config"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<packages>
+  <package id="Microsoft.SharePoint.Client.Online.CSOM" version="15.0.4919.1000" targetFramework="net472" />
+  <package id="SharePoint.Client.Office.Tools" version="15.0.4907.1000" targetFramework="net472" />
+</packages>]]></ProjectItem>
+              <ProjectItem
+                Name="ScriptMain.cs"
+                Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.Net;
+using System.Security;
+using System.IO;
+using Microsoft.SharePoint.Client;
+#endregion
+
+namespace ST_67a2a86b4b0b44ca93753989f41a31b1
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+        public static void DownloadFileViaRestAPI(string SharepointURL, string Site, string FileLocationInSharepoint, string FileName, string FileDownloadLocation, ICredentials credentials)
+        {
+            SharepointURL = SharepointURL.EndsWith("/") ? SharepointURL.Substring(0, SharepointURL.Length - 1) : SharepointURL;
+            string SiteURL = SharepointURL + "/sites/" + Site;
+            using (WebClient client = new WebClient())
+            {
+                //MessageBox.Show("Inside Function");
+                client.Headers.Add("X-FORMS_BASED_AUTH_ACCEPTED", "f");
+                client.Credentials = credentials;
+                string url = SiteURL + "/_api/web/GetFileByServerRelativeUrl('" + FileLocationInSharepoint + "/" + FileName + "')/$value";
+                //MessageBox.Show(url);
+                Uri endpointUri = new Uri(url);
+                //MessageBox.Show("Formed End point URI");
+                byte[] data = client.DownloadData(endpointUri);
+                //MessageBox.Show("Downloaded Data");
+                FileStream outputStream = new FileStream(FileDownloadLocation + FileName, FileMode.OpenOrCreate | FileMode.Append, FileAccess.Write, FileShare.None);
+                outputStream.Write(data, 0, data.Length);
+                outputStream.Flush(true);
+                outputStream.Close();
+            }
+
+        }
+
+        /// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+        public void Main()
+		{
+            // TODO: Add your code here
+            string SharepointURL = Dts.Variables["User::SharepointURL"].Value.ToString();
+            string Site = Dts.Variables["User::Site"].Value.ToString();
+            string FileLocationInSharepoint = Dts.Variables["User::FileLocationInSharepoint"].Value.ToString();
+            string FileName = Dts.Variables["User::FileName"].Value.ToString();
+            string FileDownloadLocation = Dts.Variables["User::FileDownloadLocation"].Value.ToString();
+
+            /*MessageBox.Show(
+                SharepointURL + ", " +
+                Site + ", " +
+                FileLocationInSharepoint + ", " +
+                FileName + ", " +
+                FileDownloadLocation
+            );*/
+
+            SecureString password = new SecureString();
+            foreach (char character in "Suhas@1999".ToCharArray())
+            {
+                password.AppendChar(character);
+            }
+
+            ICredentials credentials = new SharePointOnlineCredentials("SUHASBHARADWAJK@SuhasBharadwajK.onmicrosoft.com", password);
+
+            DownloadFileViaRestAPI(SharepointURL, Site, FileLocationInSharepoint, FileName, FileDownloadLocation, credentials);
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+              <ProjectItem
+                Name="Project"
+                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_67a2a86b4b0b44ca93753989f41a31b1</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_67a2a86b4b0b44ca93753989f41a31b1</msb:DisplayName>
+    <msb:ProjectId>{785D70A6-7987-4024-9BA2-8DF8C66427DB}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_67a2a86b4b0b44ca93753989f41a31b1.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="packages.config" />
+    <msb:File Include="ScriptMain.cs" />
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_67a2a86b4b0b44ca93753989f41a31b1.Properties.Settings.get_Default():ST_67a2a86b4b0b44ca93753989f41a31b1.Properties.Sett" +
+    "ings")]
+
+namespace ST_67a2a86b4b0b44ca93753989f41a31b1.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
+                Name="ST_67a2a86b4b0b44ca93753989f41a31b1.csproj"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D6130E30-3AD6-44D8-A91A-5AAF88CEE601}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_67a2a86b4b0b44ca93753989f41a31b1</RootNamespace>
+    <AssemblyName>ST_67a2a86b4b0b44ca93753989f41a31b1</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Client.Education, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\SharePoint.Client.Office.Tools.15.0.4907.1000\lib\net40-full\Microsoft.Office.Client.Education.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.Policy, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\SharePoint.Client.Office.Tools.15.0.4907.1000\lib\net40-full\Microsoft.Office.Client.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Client.TranslationServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\SharePoint.Client.Office.Tools.15.0.4907.1000\lib\net40-full\Microsoft.Office.Client.TranslationServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.DocumentManagement, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\SharePoint.Client.Office.Tools.15.0.4907.1000\lib\net40-full\Microsoft.Office.DocumentManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Policy, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\SharePoint.Client.Office.Tools.15.0.4907.1000\lib\net40-full\Microsoft.Office.Policy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\SharePoint.Client.Office.Tools.15.0.4907.1000\lib\net40-full\Microsoft.Office.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\SharePoint.Client.Office.Tools.15.0.4907.1000\lib\net40-full\Microsoft.Office.Server.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.UserProfiles, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\SharePoint.Client.Office.Tools.15.0.4907.1000\lib\net40-full\Microsoft.Office.Server.UserProfiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.SharePoint.Tools, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\SharePoint.Client.Office.Tools.15.0.4907.1000\lib\net40-full\Microsoft.Office.SharePoint.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Online.SharePoint.Client.Tenant, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.Online.SharePoint.Client.Tenant.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.ApplicationPages, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.ApplicationPages.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.ApplicationPages.Administration, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.ApplicationPages.Administration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.DocumentManagement, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Client.DocumentManagement.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Client.Publishing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Client.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Search.Applications, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Client.Search.Applications.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Client.ServerRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Taxonomy, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Client.Taxonomy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.UserProfiles, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Client.UserProfiles.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.WorkflowServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Client.WorkflowServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.DesignTime.Activities, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.DesignTime.Activities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Portal, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Portal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Publishing, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Publishing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Security, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Taxonomy, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.SharePoint.Taxonomy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Sharepoint.WorkflowActions, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>C:\Users\DELL\AppData\Local\Temp\Vsta\SSIS_ST160\Vsta3xZEwidug0yoNkIub_J_Fg\packages\Microsoft.SharePoint.Client.Online.CSOM.15.0.4919.1000\lib\net40-full\Microsoft.Sharepoint.WorkflowActions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST160</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_67a2a86b4b0b44ca93753989f41a31b1")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_67a2a86b4b0b44ca93753989f41a31b1")]
+[assembly: AssemblyCopyright("Copyright @  2024")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Resources.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_67a2a86b4b0b44ca93753989f41a31b1.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_67a2a86b4b0b44ca93753989f41a31b1.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_67a2a86b4b0b44ca93753989f41a31b1.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_67a2a86b4b0b44ca93753989f41a31b1.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_67a2a86b4b0b44ca93753989f41a31b1.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <BinaryItem
+                Name="ST_67a2a86b4b0b44ca93753989f41a31b1.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAKonGGYAAAAAAAAAAOAAIiALATAAABYAAAAIAAAAAAAA5jQA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAJQ0AABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA7BQAAAAgAAAAFgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAAYAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAHgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADI
+NAAAAAAAAEgAAAACAAUAsCIAACwRAAABAAAAAAAAANwzAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABswBQDCAAAAAQAAEQJyAQAAcG8QAAAKLQMCKw8CFgJvEQAA
+ChdZbxIAAAoQAAJyBQAAcAMoEwAACgpzFAAACgsHbxUAAApyFQAAcHJNAABwbxYAAAoHDgVvFwAA
+ChyNHAAAASUWBqIlF3JRAABwoiUYBKIlGXIBAABwoiUaBaIlG3KfAABwoigYAAAKcxkAAAoMBwhv
+GgAACg0OBAUoGwAAChwYFnMcAAAKJQkWCY5pbx0AAAolF28eAAAKbx8AAAreCgcsBgdvIAAACtwq
+AAABEAAAAgA0AIO3AAoAAAAAEzAGAAsBAAACAAARAighAAAKbyIAAApyswAAcG8jAAAKbyQAAApv
+JQAACgoCKCEAAApvIgAACnLbAABwbyMAAApvJAAACm8lAAAKCwIoIQAACm8iAAAKcvEAAHBvIwAA
+Cm8kAAAKbyUAAAoMAighAAAKbyIAAApyLwEAcG8jAAAKbyQAAApvJQAACg0CKCEAAApvIgAACnJN
+AQBwbyMAAApvJAAACm8lAAAKEwRzJgAAChMFcoMBAHAoJwAAChMHFhMIKxYRBxEIkxMJEQURCW8o
+AAAKEQgXWBMIEQgRB45pMuJymQEAcBEFcykAAAoTBgYHCAkRBBEGKAEAAAYCKCEAAAoWbyoAAAoC
+KCEAAAoWbyoAAAoqHgIoKwAACioeAigsAAAKKq5+AQAABC0ecvkBAHDQAwAAAigtAAAKby4AAApz
+LwAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKDAAAAoqLnMJAAAGgAMAAAQq
+AAAAQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA2AQAACN+AABEBQAAcAcAACNT
+dHJpbmdzAAAAALQMAABsAgAAI1VTACAPAAAQAAAAI0dVSUQAAAAwDwAA/AEAACNCbG9iAAAAAAAA
+AAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAACsAAAAFAAAABgAAAAoAAAAHAAAAMAAAAAIAAAAQAAAA
+AgAAAAIAAAADAAAABAAAAAEAAAAFAAAAAQAAAAEAAAAAAG4EAQAAAAAABgDpApEFBgB4A5EFBgA1
+An4FDwAFBgAABgBiAgwFBgDMAgwFBgCtAgwFBgBfAwwFBgAJAwwFBgAiAwwFBgB5AgwFBgCUAqYD
+CgA9Ax0ECgCbAR0EDgBaBuIGDgAkB+IGDgD6A6oEBgDAA2AHBgCxBKoEBgAYAn4FBgDbBqoEBgBh
+BbEFBgBGBfcEDgDdAVgEDgBJAlgEDgC3AeIEBgD9AZEFBgDPA6oEDgAyBeIGDgAeBZ4ABgCWBFMA
+BgDNAFMABgCrBlMABgBhAVMABgCaBFMABgDfAKoECgBGBB0EEgBHBhgBEgDWABgBFgB3BggHBgBc
+AaoEBgDrAKoEBgBXBwwFAAAAACUAAAAAAAEAAQABABAAwgQBADkAAQABAAAAEAC4BRQGVQABAAQA
+AAEQAFEGFAZpAAMACAADAQAAxgYAAE0ABAALABEAtgTyABEAiwH2ABEAvQD6AAYGfAD+AFaAtgYB
+AVaAawEBAVAgAAAAAJYALgAFAQEAMCEAAAAAhgDIBAYABwBHIgAAAACGGHEFBgAHAE8iAAAAAIMY
+cQUGAAcAVyIAAAAAkwhdBRABBwCDIgAAAACTCHMBFQEHAIoiAAAAAJMIfwEaAQcAkiIAAAAAlgjt
+BiABCACZIgAAAACGGHEFBgAIAKEiAAAAAJEYdwUlAQgAAAABAEUAAAACAPIBAAADAC4HAAAEAA8B
+AAAFAM0EAAAGAJMGAAABAKADCQBxBQEAEQBxBQYAGQBxBQoAKQBxBRAAMQBxBRAAOQBxBRAAQQBx
+BRAASQBxBRAAUQBxBRAAWQBxBRAAYQBxBRAAaQBxBQYAoQBxBQYAyQBxBRUA2QBxBQYA4QDxAyUA
+4QDmAyoA4QDWAy4A4QDUBjQAgQBxBQYAgQCfBjsA8QCaAEAAgQBnBkYA4QDUBkwAiQBxBRAAgQCE
+AFIA4QDUBlkA+QBxBV8AGQH3AW0A+QDgA3UAGQHPAQYAIQHVAQYAcQC+BooAKQFDBpAAMQGhBJYA
+OQGWA50AqQDNA6EAkQBxBQYA4QBHB6UAkQBSBaoAQQFxBa8AKQH5BgEAcQBxBQYAqQBxBQYASQH9
+ALYASQFTB78AsQBxBcUA0QBxBQYACAAUAOgACAAYAO0AKQBzAGABLgALADgBLgATAEEBLgAbAGAB
+LgAjAGkBLgArAJIBLgAzAJIBLgA7AJIBLgBDAGkBLgBLAJgBLgBTAJIBLgBbAK8BQwBjAO0ASQBz
+AGABYQB7AO0AYwBrAO0AGwB6AAMAAQAEAAMAAABhBSkBAACTAS4BAADxBjMBAgAFAAMAAgAGAAUA
+AQAHAAUAAgAIAAcABIAAAAEAAACjIoCmAAAAAAAAAQAAAAQAAAAAAAAAAAAAAM0AkQAAAAAAEAAA
+AAAAAAAAAAAA1gD+AwAAAAAEAAAAAAAAAAAAAADNAKoEAAAAABAAAAAAAAAAAAAAANYAXQAAAAAA
+DwAAAAAAAAAAAAAA3wA4AQAAAAAAAAAAAQAAAMIFAAAFAAIAAAAAAABTVF82N2EyYTg2YjRiMGI0
+NGNhOTM3NTM5ODlmNDFhMzFiMQA8TW9kdWxlPgBEb3dubG9hZEZpbGVWaWFSZXN0QVBJAFNoYXJl
+cG9pbnRVUkwAU3lzdGVtLklPAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuTWFuYWdlZERUUwB2YWx1ZV9f
+AERvd25sb2FkRGF0YQBtc2NvcmxpYgBBZGQAU3lzdGVtLkNvbGxlY3Rpb25zLlNwZWNpYWxpemVk
+AGRlZmF1bHRJbnN0YW5jZQBGaWxlTW9kZQBWYXJpYWJsZQBJRGlzcG9zYWJsZQBSdW50aW1lVHlw
+ZUhhbmRsZQBHZXRUeXBlRnJvbUhhbmRsZQBGaWxlTmFtZQBNaWNyb3NvZnQuU3FsU2VydmVyLkR0
+cy5SdW50aW1lAE1pY3Jvc29mdC5TaGFyZVBvaW50LkNsaWVudC5SdW50aW1lAFR5cGUARmlsZVNo
+YXJlAEZhaWx1cmUAZ2V0X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFS
+VFNjcmlwdE9iamVjdE1vZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBDbG9zZQBEaXNw
+b3NlAEVkaXRvckJyb3dzYWJsZVN0YXRlAFNpdGUAV3JpdGUAQ29tcGlsZXJHZW5lcmF0ZWRBdHRy
+aWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRlAEVk
+aXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5VHJh
+ZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZpZ3Vy
+YXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlvblJl
+bGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHly
+aWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0VGFza0VudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1ibHlD
+b21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAGdldF9WYWx1ZQB2
+YWx1ZQBTeXN0ZW0uUnVudGltZS5WZXJzaW9uaW5nAFNlY3VyZVN0cmluZwBUb1N0cmluZwBTdWJz
+dHJpbmcARmx1c2gAZ2V0X0xlbmd0aABFbmRzV2l0aABVcmkATWljcm9zb2Z0LlNxbFNlcnZlci5T
+Y3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRhc2tzLlNjcmlwdFRhc2sAU2NyaXB0
+T2JqZWN0TW9kZWwAU3lzdGVtLkNvbXBvbmVudE1vZGVsAFNUXzY3YTJhODZiNGIwYjQ0Y2E5Mzc1
+Mzk4OWY0MWEzMWIxLmRsbABGaWxlU3RyZWFtAGdldF9JdGVtAFN5c3RlbQBFbnVtAHJlc291cmNl
+TWFuAFNjcmlwdE1haW4ARmlsZURvd25sb2FkTG9jYXRpb24AU3lzdGVtLkNvbmZpZ3VyYXRpb24A
+U3lzdGVtLkdsb2JhbGl6YXRpb24AU3lzdGVtLlJlZmxlY3Rpb24ATmFtZVZhbHVlQ29sbGVjdGlv
+bgBXZWJIZWFkZXJDb2xsZWN0aW9uAEN1bHR1cmVJbmZvAEFwcGVuZENoYXIAZ2V0X1Jlc291cmNl
+TWFuYWdlcgAuY3RvcgAuY2N0b3IAU3lzdGVtLkRpYWdub3N0aWNzAFN5c3RlbS5SdW50aW1lLkNv
+bXBpbGVyU2VydmljZXMAU3lzdGVtLlJlc291cmNlcwBTVF82N2EyYTg2YjRiMGI0NGNhOTM3NTM5
+ODlmNDFhMzFiMS5Qcm9wZXJ0aWVzLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMA
+U1RfNjdhMmE4NmI0YjBiNDRjYTkzNzUzOTg5ZjQxYTMxYjEuUHJvcGVydGllcwBnZXRfVmFyaWFi
+bGVzAFNldHRpbmdzAElDcmVkZW50aWFscwBzZXRfQ3JlZGVudGlhbHMAU2hhcmVQb2ludE9ubGlu
+ZUNyZWRlbnRpYWxzAGNyZWRlbnRpYWxzAGdldF9IZWFkZXJzAEZpbGVBY2Nlc3MAU3VjY2VzcwBn
+ZXRfRHRzAFNjcmlwdFJlc3VsdHMAQ29uY2F0AE9iamVjdABTeXN0ZW0uTmV0AGdldF9EZWZhdWx0
+AHNldF9UYXNrUmVzdWx0AE1pY3Jvc29mdC5TaGFyZVBvaW50LkNsaWVudABXZWJDbGllbnQARmls
+ZUxvY2F0aW9uSW5TaGFyZXBvaW50AFRvQ2hhckFycmF5AGdldF9Bc3NlbWJseQBTeXN0ZW0uU2Vj
+dXJpdHkAAAMvAAAPLwBzAGkAdABlAHMALwAAN1gALQBGAE8AUgBNAFMAXwBCAEEAUwBFAEQAXwBB
+AFUAVABIAF8AQQBDAEMARQBQAFQARQBEAAEDZgAATS8AXwBhAHAAaQAvAHcAZQBiAC8ARwBlAHQA
+RgBpAGwAZQBCAHkAUwBlAHIAdgBlAHIAUgBlAGwAYQB0AGkAdgBlAFUAcgBsACgAJwABEycAKQAv
+ACQAdgBhAGwAdQBlAAEnVQBzAGUAcgA6ADoAUwBoAGEAcgBlAHAAbwBpAG4AdABVAFIATAAAFVUA
+cwBlAHIAOgA6AFMAaQB0AGUAAD1VAHMAZQByADoAOgBGAGkAbABlAEwAbwBjAGEAdABpAG8AbgBJ
+AG4AUwBoAGEAcgBlAHAAbwBpAG4AdAAAHVUAcwBlAHIAOgA6AEYAaQBsAGUATgBhAG0AZQAANVUA
+cwBlAHIAOgA6AEYAaQBsAGUARABvAHcAbgBsAG8AYQBkAEwAbwBjAGEAdABpAG8AbgAAFVMAdQBo
+AGEAcwBAADEAOQA5ADkAAF9TAFUASABBAFMAQgBIAEEAUgBBAEQAVwBBAEoASwBAAFMAdQBoAGEA
+cwBCAGgAYQByAGEAZAB3AGEAagBLAC4AbwBuAG0AaQBjAHIAbwBzAG8AZgB0AC4AYwBvAG0AAHFT
+AFQAXwA2ADcAYQAyAGEAOAA2AGIANABiADAAYgA0ADQAYwBhADkAMwA3ADUAMwA5ADgAOQBmADQA
+MQBhADMAMQBiADEALgBQAHIAbwBwAGUAcgB0AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAn
+0CPyIBsqQ6DKWMkAVIjQAAQgAQEIAyAAAQUgAQEREQQgAQEOBSABARFhCQcEDhJBEkUdBQQgAQIO
+AyAACAUgAg4ICAYAAw4ODg4EIAASdQUgAgEODgUgAQESPQUAAQ4dDgYgAR0FEkUFAAIODg4NIAQB
+DhGAgRGAhRGAiQcgAwEdBQgIBCABAQIPBwoODg4ODhJJEj0dAwgDBSAAEoCVBSAAEoCZBiABEoCd
+HAMgABwDIAAOBCAAHQMEIAEBAwYgAgEOEkkIAAESgKURgKkFIAASgK0HIAIBDhKArQi3elxWGTTg
+iQiJhF3NgIDMkQhx6bzhEelCnAQAAAAABAEAAAADBhJZAwYSXQMGEhACBggDBhEUCgAGAQ4ODg4O
+Ej0EAAASWQQAABJdBQABARJdBAAAEhADAAABBAgAElkECAASXQQIABIQCAEACAAAAAAAHgEAAQBU
+AhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAQgBAAIAAAAAACgBACNTVF82N2EyYTg2YjRiMGI0NGNh
+OTM3NTM5ODlmNDFhMzFiMQAABQEAAAAAFgEAEUNvcHlyaWdodCBAICAyMDI0AABJAQAaLk5FVEZy
+YW1ld29yayxWZXJzaW9uPXY0LjcBAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEi5ORVQgRnJhbWV3
+b3JrIDQuNwAAALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRl
+ciwgbXNjb3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlU
+b2tlbj1iNzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0
+AgAAAAAAAAAAAAAAUEFEUEFEULQAAAC8NAAAAAAAAAAAAADWNAAAACAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAyDQAAAAAAAAAAAAAAABfQ29yRGxsTWFpbgBtc2NvcmVlLmRsbAAAAAAA/yUAIAAQAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABI
+AAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAA
+AAC9BO/+AAABAAAAAQCApqMiAAABAICmoyI/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAA
+AAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4A
+AAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAAMAAw
+ADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABhAG4A
+eQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAA
+AFMAVABfADYANwBhADIAYQA4ADYAYgA0AGIAMABiADQANABjAGEAOQAzADcANQAzADkAOAA5AGYA
+NAAxAGEAMwAxAGIAMQAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAALgA4
+ADgANgA3AC4ANAAyADYAMgA0AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMA
+VABfADYANwBhADIAYQA4ADYAYgA0AGIAMABiADQANABjAGEAOQAzADcANQAzADkAOAA5AGYANAAx
+AGEAMwAxAGIAMQAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAA
+QwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMgA0AAAAKgABAAEATABlAGcAYQBsAFQAcgBh
+AGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEA
+bQBlAAAAUwBUAF8ANgA3AGEAMgBhADgANgBiADQAYgAwAGIANAA0AGMAYQA5ADMANwA1ADMAOQA4
+ADkAZgA0ADEAYQAzADEAYgAxAC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUA
+AAAAAFMAVABfADYANwBhADIAYQA4ADYAYgA0AGIAMABiADQANABjAGEAOQAzADcANQAzADkAOAA5
+AGYANAAxAGEAMwAxAGIAMQAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEA
+LgAwAC4AOAA4ADYANwAuADQAMgA2ADIANAAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAAVgBl
+AHIAcwBpAG8AbgAAADEALgAwAC4AOAA4ADYANwAuADQAMgA2ADIANAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAAwAAADoNAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+            </ScriptProject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach File in Sharepoint\Insert the uploaded file's name to 'FilesLoadedTillNow' table in DB"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1AB2E92B-65AD-4F4A-8CFE-67A4D46A558B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Insert the uploaded file's name to 'FilesLoadedTillNow' table in DB"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"INSERT INTO FilesLoadedTillNow (FileName) VALUES ('" + @[User::FileName] + "')"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{77C8A633-2147-42F3-8AD3-3A68714517F6}"
+              SQLTask:SqlStatementSource="INSERT INTO FilesLoadedTillNow (FileName) VALUES ('')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{08FAA3E4-0B49-4D33-AB81-5FC7F29549FC}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Upload the data in downloaded files to DB"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add a derived column to track the FileID"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Outputs[Derived Column Output].Columns[FileID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="200"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Outputs[Derived Column Output].Columns[FileID]"
+                          name="FileID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[LEFT]([RIGHT](@[User::FileName],18),14)</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">LEFT(RIGHT(@[User::FileName],18),14)</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Convert data types of some columns as to be compliant with data types of respective columns in DB"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Inputs[Data Conversion Input].Columns[EmployeeID]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="EmployeeID"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[EmployeeID]"
+                          name="EmployeeID" />
+                        <inputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Inputs[Data Conversion Input].Columns[OccupationID]"
+                          cachedCodepage="65001"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="OccupationID"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[OccupationID]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Output].Columns[DB_EmployeeID]"
+                          dataType="ui8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Output].Columns[DB_EmployeeID]"
+                          name="DB_EmployeeID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[EmployeeID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">true</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Output].Columns[DB_OccupationID]"
+                          dataType="ui8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="IgnoreFailure"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Output].Columns[DB_OccupationID]"
+                          name="DB_OccupationID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[OccupationID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">true</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="Load the data read from downloaded file to DB along with dervied column FileID"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Employees]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Luxoft]"
+                      connectionManagerRefId="Package.ConnectionManagers[Luxoft]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].Columns[OccupationTitle]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="OccupationTitle"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[OccupationTitle]"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[OccupationTitle]" />
+                        <inputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].Columns[FileID]"
+                          cachedDataType="wstr"
+                          cachedName="FileID"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[FileID]"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Outputs[Derived Column Output].Columns[FileID]" />
+                        <inputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].Columns[DB_EmployeeID]"
+                          cachedDataType="ui8"
+                          cachedName="DB_EmployeeID"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Output].Columns[DB_EmployeeID]" />
+                        <inputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].Columns[DB_OccupationID]"
+                          cachedDataType="ui8"
+                          cachedName="DB_OccupationID"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[OccupationID]"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Output].Columns[DB_OccupationID]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeID]"
+                          dataType="i4"
+                          name="EmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="200"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="200"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[OccupationID]"
+                          dataType="i4"
+                          name="OccupationID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[OccupationTitle]"
+                          dataType="wstr"
+                          length="200"
+                          name="OccupationTitle" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input].ExternalColumns[FileID]"
+                          dataType="wstr"
+                          length="200"
+                          name="FileID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="16393"
+                  name="Read the Data from the Downloaded flile"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[EmployeeID]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].ExternalColumns[EmployeeID]"
+                          length="50"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[EmployeeID]"
+                          name="EmployeeID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[LastName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                          length="50"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[LastName]"
+                          name="LastName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[FirstName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                          length="50"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[FirstName]"
+                          name="FirstName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[OccupationID]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].ExternalColumns[OccupationID]"
+                          length="50"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[OccupationID]"
+                          name="OccupationID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[OccupationTitle]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].ExternalColumns[OccupationTitle]"
+                          length="50"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].Columns[OccupationTitle]"
+                          name="OccupationTitle"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].ExternalColumns[EmployeeID]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="EmployeeID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].ExternalColumns[OccupationID]"
+                          codePage="65001"
+                          dataType="str"
+                          length="50"
+                          name="OccupationID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output].ExternalColumns[OccupationTitle]"
+                          dataType="wstr"
+                          length="50"
+                          name="OccupationTitle" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="65001"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB.Paths[Data Conversion Output]"
+                  endId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Inputs[Derived Column Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB.Paths[Derived Column Output]"
+                  endId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB.Paths[Flat File Source Output]"
+                  endId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB.Inputs[Data Conversion Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach File in Sharepoint.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4613ECE5-EA72-4CBA-AEAD-6AD573E1B138}"
+          DTS:From="Package\Foreach File in Sharepoint\Download the Files from Sharepoint"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach File in Sharepoint.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{17BAFCAF-CAAC-4058-9674-C884ACB562AA}"
+          DTS:From="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach File in Sharepoint\Insert the uploaded file's name to 'FilesLoadedTillNow' table in DB" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach File in Sharepoint.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{150165EB-58B8-4C0E-A70B-807BF0CA4ABE}"
+          DTS:From="Package\Foreach File in Sharepoint\Insert the uploaded file's name to 'FilesLoadedTillNow' table in DB"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach File in Sharepoint\Delete the downloaded file"
+          DTS:Value="2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach File in Sharepoint.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{9167F5E5-F30F-465D-ABB1-68106C08317D}"
+          DTS:From="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach File in Sharepoint\Delete the downloaded file"
+          DTS:Value="1" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{5B21EE6D-D8BC-4BD4-AEFF-78D64BAAB92A}"
+          DTS:ObjectName="{5B21EE6D-D8BC-4BD4-AEFF-78D64BAAB92A}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FileLocationInSharepoint" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{7F040BC2-041B-431E-9E1A-0AFF312423E3}"
+          DTS:ObjectName="{7F040BC2-041B-431E-9E1A-0AFF312423E3}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::FileName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get filenames and their locations in Sharepoint"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CBD0E959-8041-4A89-8F20-0157D78099F2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get filenames and their locations in Sharepoint"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[FilesLoadedTillNow]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[FilesLoadedTillNow]) [refTable]
+where [refTable].[FileName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="FileName" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Output].Columns[DT_WSTR_Name]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Luxoft]"
+                  connectionManagerRefId="Package.ConnectionManagers[Luxoft]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Inputs[Lookup Input].Columns[DT_WSTR_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DT_WSTR_Name"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Output].Columns[DT_WSTR_Name]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">FileName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Convert filenames and their respective paths to Unicode String"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Inputs[Data Conversion Input].Columns[Path]"
+                      cachedDataType="nText"
+                      cachedName="Path"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].Columns[Path]" />
+                    <inputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Inputs[Data Conversion Input].Columns[Name]"
+                      cachedDataType="nText"
+                      cachedName="Name"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].Columns[Name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Output].Columns[DT_WSTR_Path]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Output].Columns[DT_WSTR_Path]"
+                      name="DT_WSTR_Path"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].Columns[Path]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Output].Columns[DT_WSTR_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Output].Columns[DT_WSTR_Name]"
+                      name="DT_WSTR_Name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].Columns[Name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get filenames and their locations in Sharepoint\Files that have not been loaded are stored in FileLocationAndNameInSharepoint Variable"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Files that have not been loaded are stored in FileLocationAndNameInSharepoint Variable">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::FileLocationInSharepointAndName</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Get filenames and their locations in Sharepoint\Files that have not been loaded are stored in FileLocationAndNameInSharepoint Variable.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Files that have not been loaded are stored in FileLocationAndNameInSharepoint Variable.Inputs[Recordset Destination Input].Columns[DT_WSTR_Path]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DT_WSTR_Path"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Output].Columns[DT_WSTR_Path]" />
+                    <inputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Files that have not been loaded are stored in FileLocationAndNameInSharepoint Variable.Inputs[Recordset Destination Input].Columns[DT_WSTR_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="DT_WSTR_Name"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Output].Columns[DT_WSTR_Name]"
+                      mappedColumnId="Package\Get filenames and their locations in Sharepoint\101:invalid" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="OData Source Component;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Read data from OData services"
+              name="Get filenames and their locations in Sharepoint"
+              usesDispositions="true"
+              validateExternalMetadata="False">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Name of the collection to be retrieved from the service."
+                  expressionType="Notify"
+                  name="CollectionName">SSIS</property>
+                <property
+                  dataType="System.Int32"
+                  description="The default maximum length for a string that has no maxlength specified in the schema."
+                  name="DefaultStringLength">4000</property>
+                <property
+                  dataType="System.String"
+                  description="Query in the url. "
+                  expressionType="Notify"
+                  name="Query">$filter=ContentType eq 'Document'</property>
+                <property
+                  dataType="System.String"
+                  description="Resource path of the collection to be retrieved from the service."
+                  expressionType="Notify"
+                  name="ResourcePath"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="When set to true, use the resource path as requested collection; otherwise, use the collection name."
+                  expressionType="Notify"
+                  name="UseResourcePath">false</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.OData</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Connections[Connection]"
+                  connectionManagerID="Package.ConnectionManagers[OData Source]"
+                  connectionManagerRefId="Package.ConnectionManagers[OData Source]"
+                  description="Connection to OData Service"
+                  name="Connection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output]"
+                  name="Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].Columns[Path]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Path]"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].Columns[Path]"
+                      name="Path" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].Columns[Name]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Name]"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].Columns[Name]"
+                      name="Name" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[ContentTypeID]"
+                      dataType="nText"
+                      name="ContentTypeID" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[ContentType]"
+                      dataType="nText"
+                      name="ContentType" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Created]"
+                      dataType="dbTimeStamp"
+                      name="Created" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[CreatedById]"
+                      dataType="i4"
+                      name="CreatedById" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Modified]"
+                      dataType="dbTimeStamp"
+                      name="Modified" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[ModifiedById]"
+                      dataType="i4"
+                      name="ModifiedById" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[CopySource]"
+                      dataType="nText"
+                      name="CopySource" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[ApprovalStatus]"
+                      dataType="nText"
+                      name="ApprovalStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Path]"
+                      dataType="nText"
+                      name="Path" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[CheckedOutToId]"
+                      dataType="i4"
+                      name="CheckedOutToId" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Name]"
+                      dataType="nText"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[VirusStatus]"
+                      dataType="nText"
+                      name="VirusStatus" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[IsCurrentVersion]"
+                      dataType="bool"
+                      name="IsCurrentVersion" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[ColorTag]"
+                      dataType="nText"
+                      name="ColorTag" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Owshiddenversion]"
+                      dataType="i4"
+                      name="Owshiddenversion" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Version]"
+                      dataType="nText"
+                      name="Version" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[ComplianceAssetId]"
+                      dataType="nText"
+                      name="ComplianceAssetId" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Title]"
+                      dataType="nText"
+                      name="Title" />
+                    <externalMetadataColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output].ExternalColumns[Description]"
+                      dataType="nText"
+                      name="Description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output]"
+                  isErrorOut="true"
+                  name="Error output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Id]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ContentTypeID]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ContentTypeID]"
+                      name="ContentTypeID" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ContentType]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ContentType]"
+                      name="ContentType" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Created]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Created]"
+                      name="Created" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[CreatedById]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[CreatedById]"
+                      name="CreatedById" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Modified]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Modified]"
+                      name="Modified" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ModifiedById]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ModifiedById]"
+                      name="ModifiedById" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[CopySource]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[CopySource]"
+                      name="CopySource" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ApprovalStatus]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ApprovalStatus]"
+                      name="ApprovalStatus" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Path]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Path]"
+                      name="Path" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[CheckedOutToId]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[CheckedOutToId]"
+                      name="CheckedOutToId" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Name]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[VirusStatus]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[VirusStatus]"
+                      name="VirusStatus" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[IsCurrentVersion]"
+                      dataType="bool"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[IsCurrentVersion]"
+                      name="IsCurrentVersion" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ColorTag]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ColorTag]"
+                      name="ColorTag" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Owshiddenversion]"
+                      dataType="i4"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Owshiddenversion]"
+                      name="Owshiddenversion" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Version]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Version]"
+                      name="Version" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ComplianceAssetId]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[ComplianceAssetId]"
+                      name="ComplianceAssetId" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Title]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Title]"
+                      name="Title" />
+                    <outputColumn
+                      refId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Description]"
+                      dataType="nText"
+                      lineageId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Error output].Columns[Description]"
+                      name="Description" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Get filenames and their locations in Sharepoint.Paths[Data Conversion Output]"
+              endId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Get filenames and their locations in Sharepoint.Paths[Lookup No Match Output]"
+              endId="Package\Get filenames and their locations in Sharepoint\Files that have not been loaded are stored in FileLocationAndNameInSharepoint Variable.Inputs[Recordset Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Get filenames and their locations in Sharepoint.Paths[Output]"
+              endId="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String.Inputs[Data Conversion Input]"
+              name="Output"
+              startId="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B3ABA7EF-CDD2-4371-8158-C94495C6BF29}"
+      DTS:From="Package\Get filenames and their locations in Sharepoint"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach File in Sharepoint" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{1D74C963-EC86-4226-BAD6-22C1CFEDC504}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{BE845862-F801-4E7D-963F-3322387B39EB}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\File System Task"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{2B8BDEB8-BB59-42ED-96A6-49106CC12CF1}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData />
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="299,42"
+          Id="Package\Get filenames and their locations in Sharepoint"
+          TopLeft="401.5,31.5" />
+        <NodeLayout
+          Size="372,42"
+          Id="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB"
+          TopLeft="14.5,102.5" />
+        <NodeLayout
+          Size="390,42"
+          Id="Package\Foreach File in Sharepoint\Insert the uploaded file's name to 'FilesLoadedTillNow' table in DB"
+          TopLeft="14,251" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Foreach File in Sharepoint\Delete the downloaded file"
+          TopLeft="371,170" />
+        <NodeLayout
+          Size="352,42"
+          Id="Package\Foreach File in Sharepoint\Download the Files from Sharepoint"
+          TopLeft="22,23" />
+        <EdgeLayout
+          Id="Package\Foreach File in Sharepoint.PrecedenceConstraints[Constraint]"
+          TopLeft="180.25,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.5"
+              Start="0,0"
+              End="0,30">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach File in Sharepoint.PrecedenceConstraints[Constraint 1]"
+          TopLeft="178.583333333333,144.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,106.5"
+              Start="0,0"
+              End="0,99">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,99" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach File in Sharepoint.PrecedenceConstraints[Constraint 2]"
+          TopLeft="272.666666666667,251">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="200.833333333333,-39"
+              Start="0,0"
+              End="200.833333333333,-31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-11.6956077630235" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-11.6956077630235"
+                    Point2="0,-15.6956077630235"
+                    Point3="4,-15.6956077630235" />
+                  <mssgle:LineSegment
+                    End="196.833333333333,-15.6956077630235" />
+                  <mssgle:CubicBezierSegment
+                    Point1="196.833333333333,-15.6956077630235"
+                    Point2="200.833333333333,-15.6956077630235"
+                    Point3="200.833333333333,-19.6956077630235" />
+                  <mssgle:LineSegment
+                    End="200.833333333333,-31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="75.1122135416667,-10.6956077630235,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach File in Sharepoint.PrecedenceConstraints[Constraint 3]"
+          TopLeft="261.166666666667,144.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="212.333333333333,25.5"
+              Start="0,0"
+              End="212.333333333333,18">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.26552462526767" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.26552462526767"
+                    Point2="0,10.2655246252677"
+                    Point3="4,10.2655246252677" />
+                  <mssgle:LineSegment
+                    End="208.333333333333,10.2655246252677" />
+                  <mssgle:CubicBezierSegment
+                    Point1="208.333333333333,10.2655246252677"
+                    Point2="212.333333333333,10.2655246252677"
+                    Point3="212.333333333333,14.2655246252677" />
+                  <mssgle:LineSegment
+                    End="212.333333333333,18" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="90.9253190104167,15.2655246252677,30.4826953125,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="581,309"
+          Size="581,352"
+          Id="Package\Foreach File in Sharepoint"
+          TopLeft="266,133" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="553.75,73.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.5"
+              Start="0,0"
+              End="0,52">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="158,42"
+          Id="Package.EventHandlers[OnError]\File System Task"
+          TopLeft="498,132" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Get filenames and their locations in Sharepoint">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="496,42"
+          Id="Package\Get filenames and their locations in Sharepoint\Files that have not been loaded are stored in FileLocationAndNameInSharepoint Variable"
+          TopLeft="82,312" />
+        <NodeLayout
+          Size="299,42"
+          Id="Package\Get filenames and their locations in Sharepoint\Get filenames and their locations in Sharepoint"
+          TopLeft="165,19" />
+        <NodeLayout
+          Size="493,42"
+          Id="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB"
+          TopLeft="77.5,201.5" />
+        <NodeLayout
+          Size="374,42"
+          Id="Package\Get filenames and their locations in Sharepoint\Convert filenames and their respective paths to Unicode String"
+          TopLeft="133,110" />
+        <EdgeLayout
+          Id="Package\Get filenames and their locations in Sharepoint.Paths[Output]"
+          TopLeft="317.25,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get filenames and their locations in Sharepoint.Paths[Lookup No Match Output]"
+          TopLeft="318,243.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.5"
+              Start="0,0"
+              End="0,61">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,24.6953125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get filenames and their locations in Sharepoint.Paths[Data Conversion Output]"
+          TopLeft="317,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.5"
+              Start="0,0"
+              End="0,42">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get filenames and their locations in Sharepoint\Check which files have already been loaded by looking up 'FileAlreayLoaded' table in DB">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[FilesLoadedTillNow]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="459,44"
+          Id="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID"
+          TopLeft="269,281" />
+        <NodeLayout
+          Size="345,42"
+          Id="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Read the Data from the Downloaded flile"
+          TopLeft="320,1" />
+        <NodeLayout
+          Size="270,42"
+          Id="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Add a derived column to track the FileID"
+          TopLeft="352,174" />
+        <NodeLayout
+          Size="347,42"
+          Id="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Convert data types of some columns as to be compliant with data types of respective columns in DB"
+          TopLeft="320,81" />
+        <EdgeLayout
+          Id="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB.Paths[Data Conversion Output]"
+          TopLeft="490.25,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB.Paths[Flat File Source Output]"
+          TopLeft="493,43">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38"
+              Start="0,0"
+              End="0,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB.Paths[Derived Column Output]"
+          TopLeft="489.75,216">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach File in Sharepoint\Upload the data in downloaded files to DB\Load the data read from downloaded file to DB along with dervied column FileID">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
